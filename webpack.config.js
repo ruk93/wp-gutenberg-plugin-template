@@ -1,17 +1,12 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-  entry: "./js/block.js",
+  entry: {block : "./js/block.js", preview : "./js/Preview.js"},
   output: {
     path: __dirname,
-    filename: "build/block.build.js",
+    filename: "build/[name].build.js",
   },
   module: {
-    // loaders: [
-    // 	{
-    // 		test: /.js$/,
-    // 		loader: 'babel-loader',
-    // 		exclude: /node_modules/,
-    // 	},
-    // ],
     rules: [
       {
         test: /.js$/,
@@ -25,4 +20,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'preview.html',
+      inject: false,
+    }),
+  ]
 };
