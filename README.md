@@ -1,0 +1,1 @@
+# wp-gutenberg-plugin-template
